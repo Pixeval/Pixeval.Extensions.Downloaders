@@ -1,6 +1,8 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 using Pixeval.Extensions.Common;
+using Pixeval.Extensions.Downloaders.Aria2.Downloaders;
+using Pixeval.Extensions.Downloaders.Aria2.Settings;
 using Pixeval.Extensions.Downloaders.Aria2.Strings;
 using Pixeval.Extensions.SDK;
 
@@ -41,5 +43,10 @@ public partial class ExtensionsHost : ExtensionsHostBase
 
     public override IExtension[] Extensions { get; } =
     [
+        new Aria2ImageDownloaderExtension(),
+        new EndPointSettingsExtension(),
+        new SecretSettingsExtension(),
+        new UserAgentSettingsExtension(),
+        new ReferrerSettingsExtension()
     ];
 }

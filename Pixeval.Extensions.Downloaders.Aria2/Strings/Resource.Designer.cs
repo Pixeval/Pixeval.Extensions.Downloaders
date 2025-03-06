@@ -61,6 +61,33 @@ namespace Pixeval.Extensions.Downloaders.Aria2.Strings {
         }
         
         /// <summary>
+        ///   查找类似 只能使用http协议，且不能留空 的本地化字符串。
+        /// </summary>
+        internal static string EndPointSettingsDescription {
+            get {
+                return ResourceManager.GetString("EndPointSettingsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Aria2JsonRpc服务器地址 的本地化字符串。
+        /// </summary>
+        internal static string EndPointSettingsLabel {
+            get {
+                return ResourceManager.GetString("EndPointSettingsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 服务器地址 的本地化字符串。
+        /// </summary>
+        internal static string EndPointSettingsPlaceholder {
+            get {
+                return ResourceManager.GetString("EndPointSettingsPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Aria2 下载转发扩展 的本地化字符串。
         /// </summary>
         internal static string ExtensionHostDescription {
@@ -75,6 +102,87 @@ namespace Pixeval.Extensions.Downloaders.Aria2.Strings {
         internal static string ExtensionHostName {
             get {
                 return ResourceManager.GetString("ExtensionHostName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 服务器下载使用的Referer 的本地化字符串。
+        /// </summary>
+        internal static string ReferrerSettingsDescription {
+            get {
+                return ResourceManager.GetString("ReferrerSettingsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Aria2服务器Referer 的本地化字符串。
+        /// </summary>
+        internal static string ReferrerSettingsLabel {
+            get {
+                return ResourceManager.GetString("ReferrerSettingsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Referer 的本地化字符串。
+        /// </summary>
+        internal static string ReferrerSettingsPlaceholder {
+            get {
+                return ResourceManager.GetString("ReferrerSettingsPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 服务器secret密钥 的本地化字符串。
+        /// </summary>
+        internal static string SecretSettingsDescription {
+            get {
+                return ResourceManager.GetString("SecretSettingsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Aria2服务器secret密钥 的本地化字符串。
+        /// </summary>
+        internal static string SecretSettingsLabel {
+            get {
+                return ResourceManager.GetString("SecretSettingsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 secret密钥 的本地化字符串。
+        /// </summary>
+        internal static string SecretSettingsPlaceholder {
+            get {
+                return ResourceManager.GetString("SecretSettingsPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 服务器下载使用的UserAgent 的本地化字符串。
+        /// </summary>
+        internal static string UserAgentSettingsDescription {
+            get {
+                return ResourceManager.GetString("UserAgentSettingsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Aria2服务器UserAgent 的本地化字符串。
+        /// </summary>
+        internal static string UserAgentSettingsLabel {
+            get {
+                return ResourceManager.GetString("UserAgentSettingsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 UserAgent 的本地化字符串。
+        /// </summary>
+        internal static string UserAgentSettingsPlaceholder {
+            get {
+                return ResourceManager.GetString("UserAgentSettingsPlaceholder", resourceCulture);
             }
         }
     }
