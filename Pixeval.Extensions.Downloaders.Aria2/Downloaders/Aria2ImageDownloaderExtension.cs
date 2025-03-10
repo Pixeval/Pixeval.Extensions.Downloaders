@@ -2,12 +2,13 @@
 // Licensed under the GPL v3 License.
 
 using System.Runtime.InteropServices.Marshalling;
+using Pixeval.Extensions.Common;
 using Pixeval.Extensions.SDK.Downloaders;
 
 namespace Pixeval.Extensions.Downloaders.Aria2.Downloaders;
 
 [GeneratedComClass]
-public partial class Aria2ImageDownloaderExtension : ImageDownloaderExtensionBase
+public partial class Aria2ImageDownloaderExtension : DownloaderExtensionBase
 {
     public static Aria2Client Aria2Client { get; private set; } = null!;
 
@@ -21,10 +22,10 @@ public partial class Aria2ImageDownloaderExtension : ImageDownloaderExtensionBas
         Aria2Client.Dispose();
     }
 
-    public override Task<string?> DownloadAsync(string uri, string destination)
+    public override void Download(IProgressNotifier notifier, string uri, string destination)
     {
         var name = Path.GetFileName(destination);
         var directory = Path.GetDirectoryName(destination);
-        return Aria2Client.DownloadAsync(uri, directory!, name);
+        _ = Aria2Client.DownloadAsync(notifier, uri, directory!, name);
     }
 }

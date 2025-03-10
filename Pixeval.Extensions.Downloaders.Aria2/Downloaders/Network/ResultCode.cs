@@ -5,8 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace Pixeval.Extensions.Downloaders.Aria2.Downloaders.Network;
 
-public record Aria2Request(
+public record ResultCode<T>(
     [property: JsonPropertyName("id")] string Id,
     [property: JsonPropertyName("jsonrpc")] string JsonRpc,
-    [property: JsonPropertyName("method")] string Method,
-    [property: JsonPropertyName("params")] List<object> Parameters);
+    [property: JsonPropertyName("result")] T Result);
