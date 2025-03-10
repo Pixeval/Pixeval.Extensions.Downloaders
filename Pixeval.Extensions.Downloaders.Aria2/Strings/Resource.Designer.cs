@@ -61,7 +61,7 @@ namespace Pixeval.Extensions.Downloaders.Aria2.Strings {
         }
         
         /// <summary>
-        ///   查找类似 只能使用http协议，且不能留空 的本地化字符串。
+        ///   查找类似 只能使用http/https协议，且不能留空 的本地化字符串。
         /// </summary>
         internal static string EndPointSettingsDescription {
             get {

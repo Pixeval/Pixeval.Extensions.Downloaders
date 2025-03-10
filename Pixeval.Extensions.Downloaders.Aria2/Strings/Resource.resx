@@ -127,7 +127,7 @@
     <value>Aria2JsonRpc服务器地址</value>
   </data>
   <data name="EndPointSettingsDescription" xml:space="preserve">
-    <value>只能使用http协议，且不能留空</value>
+    <value>只能使用http/https协议，且不能留空</value>
   </data>
   <data name="EndPointSettingsPlaceholder" xml:space="preserve">
     <value>服务器地址</value>

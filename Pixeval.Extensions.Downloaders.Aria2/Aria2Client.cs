@@ -82,8 +82,8 @@ public class Aria2Client : IDisposable
 
     private async Task<ResultCode<T>> RequestAsync<T>(
         string method,
-        CancellationToken token,
         string? secret,
+        CancellationToken token,
         params IEnumerable<object?> parameters)
     {
         if (secret is not null)
@@ -127,11 +127,10 @@ public class Aria2Client : IDisposable
         CancellationToken token = default) =>
         RequestAsync<string>(
             "aria2.addUri",
-            token,
             secret,
+            token,
             uriList,
-            options,
-            location);
+            options, location);
 
     /// <summary>
     /// 根据gid查找任务
@@ -146,9 +145,8 @@ public class Aria2Client : IDisposable
         CancellationToken token = default) =>
         RequestAsync<FileDownloadTell>(
             "aria2.tellStatus",
-            token,
             secret,
-            gid);
+            token, gid);
 
     /// <summary>
     /// 设置aria2全局设置
@@ -162,9 +160,8 @@ public class Aria2Client : IDisposable
         CancellationToken token = default) =>
         RequestAsync<string>(
             "aria2.changeGlobalOption",
-            token,
             secret,
-            queries);
+            token, queries);
 
     /// <summary>
     /// 获得aria2全局设置
@@ -175,7 +172,7 @@ public class Aria2Client : IDisposable
     public Task<ResultCode<object>> GetGlobalOptionAsync(
         string? secret = null,
         CancellationToken token = default) =>
-        RequestAsync<object>("aria2.getGlobalOption", token, secret);
+        RequestAsync<object>("aria2.getGlobalOption", secret, token);
 
     /// <summary>
     /// 获得正在活动的任务列表
@@ -188,8 +185,7 @@ public class Aria2Client : IDisposable
         CancellationToken token = default) =>
         RequestAsync<List<FileDownloadTell>>(
             "aria2.tellActive",
-            token,
-            secret);
+            secret, token);
 
     /// <summary>
     /// 暂停所有任务
@@ -200,7 +196,7 @@ public class Aria2Client : IDisposable
     public Task<ResultCode<string>> PauseAllTaskAsync(
         string? secret = null,
         CancellationToken token = default) =>
-        RequestAsync<string>("aria2.pauseAll", token, secret);
+        RequestAsync<string>("aria2.pauseAll", secret, token);
 
     /// <summary>
     /// 暂停一个任务
@@ -213,7 +209,7 @@ public class Aria2Client : IDisposable
         string gid,
         string? secret = null,
         CancellationToken token = default) =>
-        RequestAsync<string>("aria2.pause", token, gid, secret);
+        RequestAsync<string>("aria2.pause", gid, token, secret);
 
     /// <summary>
     /// 立即暂停一个下载
@@ -226,7 +222,7 @@ public class Aria2Client : IDisposable
         string gid,
         string? secret = null,
         CancellationToken token = default) =>
-        RequestAsync<string>("aria2.forcePause", token, gid, secret);
+        RequestAsync<string>("aria2.forcePause", gid, token, secret);
 
     /// <summary>
     /// 立即暂停所有下载
@@ -237,7 +233,7 @@ public class Aria2Client : IDisposable
     public Task<ResultCode<List<string>>> ForcePauseAllAsync(
         string? secret = null,
         CancellationToken token = default) =>
-        RequestAsync<List<string>>("aria2.forcePauseAll", token, secret);
+        RequestAsync<List<string>>("aria2.forcePauseAll", secret, token);
 
     /// <summary>
     /// 立即移除一个任务
@@ -250,7 +246,7 @@ public class Aria2Client : IDisposable
         string gid,
         string? secret = null,
         CancellationToken token = default) =>
-        RequestAsync<string>("aria2.forceRemove", token, gid, secret);
+        RequestAsync<string>("aria2.forceRemove", gid, token, secret);
 
     /// <summary>
     /// 设置aria2全局设置
@@ -309,13 +305,11 @@ public class Aria2Client : IDisposable
         CancellationToken token = default) =>
         await RequestAsync<string>(
             "aria2.addTorrent",
-            token,
             secret,
+            token,
             Convert.ToBase64String(await File.ReadAllBytesAsync(torrentPath, token)),
             new List<string>(),
-            options,
-            location
-        );
+            options, location);
 
     /// <summary>
     /// 恢复全部下载到活动任务
@@ -326,7 +320,7 @@ public class Aria2Client : IDisposable
     public Task<ResultCode<string>> UnpauseAllAsync(
         string? secret = null,
         CancellationToken token = default) =>
-        RequestAsync<string>("aria2.unpauseAll", token, secret);
+        RequestAsync<string>("aria2.unpauseAll", secret, token);
 
     /// <summary>
     /// 恢复一个下载
@@ -339,7 +333,7 @@ public class Aria2Client : IDisposable
         string gid,
         string? secret = null,
         CancellationToken token = default) =>
-        RequestAsync<string>("aria2.unpause", token, gid, secret);
+        RequestAsync<string>("aria2.unpause", gid, token, secret);
 
     /// <summary>
     /// 获取下载的选项
@@ -352,7 +346,7 @@ public class Aria2Client : IDisposable
         string gid,
         string? secret = null,
         CancellationToken token = default) =>
-        RequestAsync<object>("aria2.getOption", token, gid, secret);
+        RequestAsync<object>("aria2.getOption", gid, token, secret);
 
     /// <summary>
     /// 获得整体下载速度
@@ -362,7 +356,7 @@ public class Aria2Client : IDisposable
     /// <returns></returns>
     public Task<ResultCode<object>> GetAllTellStatusAsync(
         string? secret = null, CancellationToken token = default) =>
-        RequestAsync<object>("aria2.getGlobalStat", token, secret);
+        RequestAsync<object>("aria2.getGlobalStat", secret, token);
 
     public async Task<ResultCode<T>> MultiCallRequestAsync<T>(
         string? secret = null,
@@ -372,7 +366,7 @@ public class Aria2Client : IDisposable
     {
         var request = args.Select(item => new MultiCallRequest((string)item[0], item.Skip(1)));
 
-        var result = await RequestAsync<T>("system.multicall", token, secret, request);
+        var result = await RequestAsync<T>("system.multicall", secret, token, request);
         return result;
     }
 
@@ -391,10 +385,9 @@ public class Aria2Client : IDisposable
         CancellationToken token = default) =>
         RequestAsync<List<FileDownloadTell>>(
             "aria2.tellWaiting",
-            token,
             secret,
-            offset,
-            pageSize);
+            token,
+            offset, pageSize);
 
     /// <summary>
     /// 获得一个已经终止的任务
@@ -411,10 +404,9 @@ public class Aria2Client : IDisposable
         CancellationToken token = default) =>
         RequestAsync<List<FileDownloadTell>>(
             "aria2.tellStopped",
-            token,
             secret,
-            offset,
-            pageSize);
+            token,
+            offset, pageSize);
 
     public async Task<ResultCode<List<FileDownloadTell>>?> GetAllTaskAsync(
         string? secret = null,
@@ -437,7 +429,7 @@ public class Aria2Client : IDisposable
         string gid,
         string? secret = null,
         CancellationToken token = default) =>
-        RequestAsync<string>("aria2.remove", token, secret, gid);
+        RequestAsync<string>("aria2.remove", secret, token, gid);
 
     /// <summary>
     /// 移除指定任务
@@ -450,7 +442,7 @@ public class Aria2Client : IDisposable
         string gid,
         string? secret = null,
         CancellationToken token = default) =>
-        RequestAsync<string>("aria2.removeDownloadResult", token, secret, gid);
+        RequestAsync<string>("aria2.removeDownloadResult", secret, token, gid);
 
     /// <summary>
     /// 移除全部的下载结果
@@ -461,7 +453,7 @@ public class Aria2Client : IDisposable
     public Task<ResultCode<string>> RemoveAllDownloadResultAsync(
         string? secret = null,
         CancellationToken token = default) =>
-        RequestAsync<string>("aria2.purgeDownloadResult", token, secret);
+        RequestAsync<string>("aria2.purgeDownloadResult", secret, token);
 
     /// <summary>
     /// 获得一个任务对应的全部文件
@@ -474,7 +466,7 @@ public class Aria2Client : IDisposable
         string gid,
         string? secret = null,
         CancellationToken token = default) =>
-        RequestAsync<List<object>>("aria2.getFiles", token, secret, gid);
+        RequestAsync<List<object>>("aria2.getFiles", secret, token, gid);
 
     /// <summary>
     /// 改变一个任务的配置设置
@@ -489,7 +481,7 @@ public class Aria2Client : IDisposable
         Dictionary<string, object> values,
         string? secret = null,
         CancellationToken token = default) =>
-        RequestAsync<string>("aria2.changeOption", token, secret, gid, values);
+        RequestAsync<string>("aria2.changeOption", secret, token, gid, values);
 
     /// <summary>
     /// 获得一个Bt任务的所有Ip连接
@@ -502,5 +494,5 @@ public class Aria2Client : IDisposable
         string gid,
         string? secret = null,
         CancellationToken token = default) =>
-        RequestAsync<List<object>>("aria2.getPeers", token, secret, gid);
+        RequestAsync<List<object>>("aria2.getPeers", secret, token, gid);
 }
