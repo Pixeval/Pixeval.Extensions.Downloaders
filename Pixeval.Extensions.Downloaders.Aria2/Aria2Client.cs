@@ -1,8 +1,6 @@
 // Copyright (c) Pixeval.Extensions.Downloaders.Aria2.
 // Licensed under the GPL v3 License.
 
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using Pixeval.Extensions.Common;
 using Pixeval.Extensions.Downloaders.Aria2.Downloaders.Network;
 using System.Text.Json;
@@ -61,7 +59,7 @@ public class Aria2Client : IDisposable
                         notifier.Completed();
                         break;
                     case TellState.Error or TellState.Removed or TellState.Stopped:
-                        notifier.Aborted($"Task {tell.Status}", new StackTrace().ToString());
+                        notifier.Aborted(new Exception($"Task {tell.Status}"));
                         break;
                     default:
                         break;
@@ -70,7 +68,7 @@ public class Aria2Client : IDisposable
         }
         catch (Exception e)
         {
-            notifier.Aborted(e.Message, e.StackTrace);
+            notifier.Aborted(e);
         }
     }
 
