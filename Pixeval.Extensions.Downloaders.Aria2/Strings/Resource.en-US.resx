@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ExtensionHostName" xml:space="preserve">
+    <value>Aria2 Download</value>
+  </data>
+  <data name="ExtensionHostDescription" xml:space="preserve">
+    <value>Aria2 download forwarding extension</value>
+  </data>
+  <data name="EndPointSettingsLabel" xml:space="preserve">
+    <value>Aria2 JSON-RPC Server URL</value>
+  </data>
+  <data name="EndPointSettingsDescription" xml:space="preserve">
+    <value>Only http/https is supported, and this field cannot be empty.</value>
+  </data>
+  <data name="EndPointSettingsPlaceholder" xml:space="preserve">
+    <value>Server URL</value>
+  </data>
+  <data name="SecretSettingsDescription" xml:space="preserve">
+    <value>Server secret key</value>
+  </data>
+  <data name="SecretSettingsLabel" xml:space="preserve">
+    <value>Aria2 Server Secret Key</value>
+  </data>
+  <data name="SecretSettingsPlaceholder" xml:space="preserve">
+    <value>Secret key</value>
+  </data>
+  <data name="UserAgentSettingsDescription" xml:space="preserve">
+    <value>User-Agent used by the server for downloads</value>
+  </data>
+  <data name="UserAgentSettingsLabel" xml:space="preserve">
+    <value>Aria2 Server User-Agent</value>
+  </data>
+  <data name="UserAgentSettingsPlaceholder" xml:space="preserve">
+    <value>User-Agent</value>
+  </data>
+  <data name="ReferrerSettingsLabel" xml:space="preserve">
+    <value>Aria2 Server Referer</value>
+  </data>
+  <data name="ReferrerSettingsPlaceholder" xml:space="preserve">
+    <value>Referer</value>
+  </data>
+  <data name="ReferrerSettingsDescription" xml:space="preserve">
+    <value>Referer used by the server for downloads</value>
+  </data>
+</root>

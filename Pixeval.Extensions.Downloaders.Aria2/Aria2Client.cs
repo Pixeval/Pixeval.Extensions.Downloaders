@@ -1,9 +1,16 @@
 // Copyright (c) Pixeval.Extensions.Downloaders.Aria2.
 // Licensed under the GPL v3 License.
 
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
 using Pixeval.Extensions.Common;
 using Pixeval.Extensions.Downloaders.Aria2.Downloaders.Network;
 using System.Text.Json;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Pixeval.Extensions.Downloaders.Aria2;
 

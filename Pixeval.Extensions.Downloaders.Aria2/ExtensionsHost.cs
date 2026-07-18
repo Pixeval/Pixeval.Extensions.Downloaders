@@ -38,8 +38,8 @@ public partial class ExtensionsHost : ExtensionsHostBase
 
     public static ExtensionsHost Current { get; } = new();
 
-    [UnmanagedCallersOnly(EntryPoint = nameof(DllGetExtensionsHost))]
-    private static unsafe int DllGetExtensionsHost(void** ppv) => DllGetExtensionsHost(ppv, Current);
+    [UnmanagedCallersOnly(EntryPoint = nameof(GetExtensionsHost))]
+    private static unsafe int GetExtensionsHost(void** ppv) => GetExtensionsHost(ppv, Current);
 
     public override IExtension[] Extensions { get; } =
     [
